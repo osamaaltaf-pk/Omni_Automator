@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Osama Altaf — AI Automation Developer & Omni Automator</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07060f;
+    --surface: #0f0d1a;
+    --surface2: #16132a;
+    --purple: #7c3aed;
+    --purple-light: #a855f7;
+    --gold: #f59e0b;
+    --cyan: #06b6d4;
+    --text: #f1f0f7;
+    --muted: #8b86a8;
+    --border: rgba(124,58,237,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(7,6,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo span {
+    color: var(--purple-light);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(124,58,237,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(6,182,212,0.08) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(124,58,237,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(124,58,237,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 700px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(124,58,237,0.15);
+    border: 1px solid rgba(124,58,237,0.35);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--purple-light);
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--purple-light);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 .accent { color: var(--purple-light); }
+  .hero h1 .accent2 { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.6s 0.2s ease both;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--purple);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary:hover {
+    background: var(--purple-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(124,58,237,0.4);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--text);
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(124,58,237,0.5);
+    background: rgba(124,58,237,0.08);
+    transform: translateY(-2px);
+  }
+
+  /* ── SERVICES ── */
+  .section {
+    padding: 100px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 60px;
+    font-weight: 300;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(124,58,237,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  .service-card:hover::before { opacity: 1; }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(124,58,237,0.15);
+    border: 1px solid rgba(124,58,237,0.25);
+    color: var(--purple-light);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-top: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ── EXTENSION SPOTLIGHT ── */
+  .extension-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ext-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .ext-visual {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    position: relative;
+  }
+
+  .ext-topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ext-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .ext-dot.r { background: #ff5f57; }
+  .ext-dot.y { background: #febc2e; }
+  .ext-dot.g { background: #28c840; }
+
+  .ext-title-bar {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ext-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .ext-tab {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .ext-tab.active {
+    background: rgba(124,58,237,0.2);
+    border-color: var(--purple);
+    color: var(--purple-light);
+  }
+
+  .ext-tab:not(.active) {
+    color: var(--muted);
+    background: rgba(255,255,255,0.03);
+    border-color: var(--border);
+  }
+
+  .ext-mode-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .ext-mode-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: rgba(255,255,255,0.02);
+  }
+
+  .ext-mode-btn.active {
+    border-color: var(--purple);
+    color: var(--purple-light);
+    background: rgba(124,58,237,0.1);
+  }
+
+  .ext-input {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .ext-generate-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--purple), #9333ea);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    font-family: 'Syne', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+  }
+
+  .ext-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .ext-feat {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .ext-feat span { color: var(--cyan); font-size: 0.85rem; }
+
+  /* ── PLATFORM FLOW ── */
+  .flow-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px 100px;
+  }
+
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+    margin-top: 50px;
+  }
+
+  .flow-step {
+    text-align: center;
+    padding: 40px 30px;
+    position: relative;
+  }
+
+  .flow-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--purple);
+    font-size: 1.5rem;
+    z-index: 2;
+  }
+
+  .step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: rgba(124,58,237,0.15);
+    border: 2px solid var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--purple-light);
+    margin: 0 auto 20px;
+  }
+
+  .flow-step h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .flow-step p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* ── PLATFORMS ── */
+  .platforms-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  }
+
+  .platform-card {
+    flex: 1;
+    min-width: 200px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.3s;
+  }
+
+  .platform-card:hover {
+    border-color: rgba(124,58,237,0.4);
+    transform: translateY(-3px);
+  }
+
+  .platform-logo {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .platform-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .platform-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .platform-badge {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .badge-meta { background: rgba(24,119,242,0.15); color: #60a5fa; border: 1px solid rgba(24,119,242,0.3); }
+  .badge-gemini { background: rgba(234,179,8,0.15); color: #fbbf24; border: 1px solid rgba(234,179,8,0.3); }
+  .badge-gpt { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+
+  /* ── ABOUT ── */
+  .about-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-avatar {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .about-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--cyan));
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(8px);
+  }
+
+  .about-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .about-role {
+    color: var(--purple-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .about-bio {
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 28px;
+    line-height: 1.75;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: rgba(255,255,255,0.03);
+    transition: all 0.2s;
+  }
+
+  .social-btn:hover {
+    border-color: rgba(124,58,237,0.5);
+    background: rgba(124,58,237,0.1);
+    transform: translateY(-2px);
+  }
+
+  .skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill-pill {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-size: 0.82rem;
+    color: var(--text);
+    font-weight: 400;
+    transition: all 0.2s;
+  }
+
+  .skill-pill:hover {
+    border-color: var(--purple);
+    color: var(--purple-light);
+  }
+
+  /* ── PRIVACY POLICY ── */
+  .privacy-section {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 100px 60px;
+  }
+
+  .privacy-section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .privacy-date {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 50px;
+  }
+
+  .privacy-block {
+    margin-bottom: 44px;
+  }
+
+  .privacy-block h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--purple-light);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .privacy-block h3::before {
+    content: '';
+    display: block;
+    width: 20px; height: 2px;
+    background: var(--purple);
+    border-radius: 2px;
+  }
+
+  .privacy-block p, .privacy-block li {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .privacy-block ul {
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+
+  .privacy-block li { margin-bottom: 6px; }
+
+  .privacy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+
+  .privacy-table th {
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .privacy-table td {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(124,58,237,0.08);
+    font-weight: 300;
+    vertical-align: top;
+  }
+
+  .privacy-table tr:hover td {
+    background: rgba(124,58,237,0.04);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface);
+  }
+
+  footer p {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 300;
+  }
+
+  footer a {
+    color: var(--purple-light);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 60px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .section { padding: 70px 24px; }
+    .ext-inner, .about-inner { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
+    .flow-steps { grid-template-columns: 1fr; }
+    .flow-step:not(:last-child)::after { content: '↓'; right: 50%; top: auto; bottom: -16px; transform: translateX(50%); }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 24px; }
+    .privacy-section { padding: 70px 24px; }
+    .flow-section { padding: 0 24px 70px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">⚡ <span>Osama</span> Altaf</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#extension">Extension</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#privacy">Privacy Policy</a></li>
+    <li><a href="https://www.fiverr.com/neural_networks" target="_blank">Fiverr</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Available for Projects · AI Developer</div>
+    <h1>
+      Building <span class="accent">AI Tools</span><br>
+      that do the<br>
+      <span class="accent2">heavy lifting</span>
+    </h1>
+    <p class="hero-sub">
+      Custom Chrome extensions, YouTube automation, LLM pipelines, and AI-powered tools — built for creators and businesses who want to scale fast.
+    </p>
+    <div class="hero-actions">
+      <a href="#extension" class="btn-primary">⚡ Omni Automator</a>
+      <a href="https://www.linkedin.com/in/osamaaltafpk/" target="_blank" class="btn-outline">🔗 LinkedIn</a>
+      <a href="https://www.fiverr.com/neural_networks" target="_blank" class="btn-outline">💼 Hire on Fiverr</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section">
+    <div class="section-label">What I Build</div>
+    <h2 class="section-title">AI Automation Services</h2>
+    <p class="section-sub">End-to-end automation solutions for creators, marketers, and agencies — powered by the latest AI platforms.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🧩</span>
+        <h3>Chrome Extensions</h3>
+        <p>Custom browser extensions that automate repetitive workflows — from bulk content generation to data extraction and multi-platform control panels.</p>
+        <span class="tag">Omni Automator · Flow Pipeline</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🤖</span>
+        <h3>AI Automation</h3>
+        <p>Automation pipelines using Meta AI, Google Gemini, ChatGPT, and custom LLMs. Bulk image generation, video creation, and prompt engineering at scale.</p>
+        <span class="tag">Meta AI · Gemini · ChatGPT</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">▶️</span>
+        <h3>YouTube Automation</h3>
+        <p>End-to-end YouTube channel automation — scripting, AI voiceover, thumbnail generation, scheduling, and bulk upload workflows for faceless channels.</p>
+        <span class="tag">Faceless Channels · Auto-Upload</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🧠</span>
+        <h3>LLM Pipelines</h3>
+        <p>Custom large language model integrations, fine-tuning, RAG systems, and API-based AI tools tailored to your business workflow and data.</p>
+        <span class="tag">GPT · Claude · Gemini APIs</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⚙️</span>
+        <h3>Browser Automation</h3>
+        <p>Puppeteer, Playwright, and scripted bots for web scraping, form automation, data pipelines, and anything that wastes your time clicking.</p>
+        <span class="tag">Puppeteer · Playwright</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎨</span>
+        <h3>AI Image & Video Tools</h3>
+        <p>Bulk AI content generation tools, image-to-video pipelines, and creative automation for social media, ads, and content marketing at scale.</p>
+        <span class="tag">Bulk Generation · Flow Pipelines</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXTENSION SPOTLIGHT -->
+<section id="extension" class="extension-section">
+  <div class="ext-inner">
+    <!-- LEFT: Info -->
+    <div>
+      <div class="section-label">Featured Extension</div>
+      <h2 class="section-title">Omni Automator</h2>
+      <p class="section-sub" style="margin-bottom:28px;">
+        The only Chrome extension that automates bulk AI image and video generation across Meta AI, Google Gemini, and ChatGPT — all from one unified interface.
+      </p>
+
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:32px;">
+        <div style="display:flex; align-items:flex-start; gap:14px;">
+          <span style="color:var(--purple-light); font-size:1.1rem; margin-top:2px;">✦</span>
+          <div>
+            <strong style="font-size:0.9rem; display:block; margin-bottom:3px;">Bulk Image Generation</strong>
+            <span style="color:var(--muted); font-size:0.85rem; font-weight:300;">Paste a prompt list once — the extension generates all images automatically across Gemini and ChatGPT.</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:14px;">
+          <span style="color:var(--gold); font-size:1.1rem; margin-top:2px;">✦</span>
+          <div>
+            <strong style="font-size:0.9rem; display:block; margin-bottom:3px;">Meta AI: Image → Video Pipeline</strong>
+            <span style="color:var(--muted); font-size:0.85rem; font-weight:300;">Enter a prompt, select from 4 AI-generated images, then auto-convert to video — all in one seamless flow.</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:14px;">
+          <span style="color:var(--cyan); font-size:1.1rem; margin-top:2px;">✦</span>
+          <div>
+            <strong style="font-size:0.9rem; display:block; margin-bottom:3px;">Flow Pipeline</strong>
+            <span style="color:var(--muted); font-size:0.85rem; font-weight:300;">Images from your Downloads folder are automatically queued and processed for video generation — zero manual steps.</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:14px;">
+          <span style="color:#f87171; font-size:1.1rem; margin-top:2px;">✦</span>
+          <div>
+            <strong style="font-size:0.9rem; display:block; margin-bottom:3px;">Story Context Mode</strong>
+            <span style="color:var(--muted); font-size:0.85rem; font-weight:300;">Set characters and atmosphere once — the extension maintains scene consistency across all generated images.</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://chrome.google.com/webstore" target="_blank" class="btn-primary" style="margin-right:12px;">⚡ Install Extension</a>
+    </div>
+
+    <!-- RIGHT: Extension UI mockup -->
+    <div class="ext-visual">
+      <div class="ext-topbar">
+        <div class="ext-dot r"></div>
+        <div class="ext-dot y"></div>
+        <div class="ext-dot g"></div>
+        <div class="ext-title-bar">⚡ Omni Automator</div>
+      </div>
+      <div class="ext-tabs">
+        <div class="ext-tab active">⊕ Meta AI</div>
+        <div class="ext-tab">✦ Gemini</div>
+        <div class="ext-tab">◎ ChatGPT</div>
+      </div>
+      <div style="display:flex; gap:6px; margin-bottom:14px; font-size:0.75rem; color:var(--muted);">
+        <span style="padding:4px 10px; background:rgba(124,58,237,0.15); border-radius:6px; color:var(--purple-light); font-weight:600;">Generate</span>
+        <span style="padding:4px 10px;">Flow Pipeline</span>
+        <span style="padding:4px 10px;">Settings</span>
+        <span style="padding:4px 10px; color:var(--gold);">💎 Premium</span>
+      </div>
+      <div style="font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:10px; font-family:'Syne',sans-serif;">Generation Mode</div>
+      <div class="ext-mode-row">
+        <div class="ext-mode-btn active">🖼️ Image</div>
+        <div class="ext-mode-btn">🎬 Video</div>
+        <div class="ext-mode-btn">⚙️ Pipeline</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:10px; padding:14px; margin-bottom:12px;">
+        <div style="font-size:0.72rem; font-weight:700; color:var(--text); font-family:'Syne',sans-serif; margin-bottom:8px;">📖 Story Context</div>
+        <input class="ext-input" placeholder="Characters & Environment: Marcus, futuristic train station" readonly>
+        <input class="ext-input" placeholder="Atmosphere & Style: Pixar 3D animation, cinematic lighting" readonly>
+      </div>
+      <button class="ext-generate-btn">⚡ Generate All</button>
+      <div class="ext-features">
+        <div class="ext-feat"><span>✓</span> Bulk Prompts</div>
+        <div class="ext-feat"><span>✓</span> Auto Video</div>
+        <div class="ext-feat"><span>✓</span> Flow Queue</div>
+        <div class="ext-feat"><span>✓</span> Dark Mode</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="flow-section">
+  <div style="padding-top:80px;">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Three Modes, One Extension</h2>
+  </div>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <h4>Bulk Image Generation</h4>
+      <p>Enter a list of prompts. Omni Automator runs through them automatically on Gemini or ChatGPT — no manual input needed.</p>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <h4>Image → Video (Meta AI)</h4>
+      <p>One prompt generates 4 image variations. You pick one, then the extension automatically creates the video — all in one click.</p>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <h4>Flow Pipeline</h4>
+      <p>Images from your Downloads folder are detected, queued, and sent for video generation automatically — zero extra steps.</p>
+    </div>
+  </div>
+
+  <div class="platforms-row">
+    <div class="platform-card">
+      <span class="platform-logo">〇</span>
+      <h4>Meta AI</h4>
+      <p>Image generation + full Image→Video pipeline. Select from 4 outputs and auto-generate video.</p>
+      <span class="platform-badge badge-meta">Image + Video</span>
+    </div>
+    <div class="platform-card">
+      <span class="platform-logo">✦</span>
+      <h4>Google Gemini</h4>
+      <p>Bulk image generation from prompt lists. Automate your entire creative batch in minutes.</p>
+      <span class="platform-badge badge-gemini">Bulk Images</span>
+    </div>
+    <div class="platform-card">
+      <span class="platform-logo">◎</span>
+      <h4>ChatGPT</h4>
+      <p>Prompt-to-image automation at scale. Run your entire prompt list without touching the keyboard.</p>
+      <span class="platform-badge badge-gpt">Bulk Images</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="about-inner">
+    <div>
+      <div class="about-avatar">OA</div>
+      <div class="about-name">Osama Altaf</div>
+      <div class="about-role">AI Developer · Chrome Extension Builder · @neural_networks on Fiverr</div>
+      <p class="about-bio">
+        I build custom AI tools, browser extensions, YouTube automation systems, and LLM pipelines for creators and businesses. Passionate about making AI accessible through automation — if it's repetitive, it should be automated.<br><br>
+        Creator of <strong>Omni Automator</strong> — a universal AI image and video generation extension. Available for freelance projects via Fiverr.
+      </p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/osamaaltafpk/" target="_blank" class="social-btn">🔗 LinkedIn</a>
+        <a href="https://www.fiverr.com/neural_networks" target="_blank" class="social-btn">💼 Fiverr</a>
+        <a href="mailto:osamaaltaf.pk@gmail.com" class="social-btn">✉️ Email</a>
+      </div>
+    </div>
+    <div>
+      <div class="section-label" style="margin-bottom:20px;">Skills & Stack</div>
+      <div class="skills-cloud">
+        <span class="skill-pill">Chrome Extensions</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Meta AI Automation</span>
+        <span class="skill-pill">Google Gemini</span>
+        <span class="skill-pill">ChatGPT / OpenAI API</span>
+        <span class="skill-pill">YouTube Automation</span>
+        <span class="skill-pill">LLM Pipelines</span>
+        <span class="skill-pill">Puppeteer</span>
+        <span class="skill-pill">Playwright</span>
+        <span class="skill-pill">Browser Automation</span>
+        <span class="skill-pill">Prompt Engineering</span>
+        <span class="skill-pill">RAG Systems</span>
+        <span class="skill-pill">AI Image Generation</span>
+        <span class="skill-pill">Video Automation</span>
+        <span class="skill-pill">Node.js</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRIVACY POLICY -->
+<section id="privacy">
+  <div class="privacy-section">
+    <div class="section-label">Legal</div>
+    <h2>Privacy Policy</h2>
+    <p class="privacy-date">Omni Automator Chrome Extension · Last Updated: May 16, 2026</p>
+
+    <div class="privacy-block">
+      <h3>Overview</h3>
+      <p>Omni Automator ("the Extension") is a Chrome browser extension developed by Osama Altaf that automates AI image and video generation across Meta AI, Google Gemini, and ChatGPT. This Privacy Policy explains what data the Extension interacts with, why, and how it is handled. All processing happens locally in your browser. No data is sent to any external server owned or operated by us.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h3>Data We Interact With</h3>
+      <table class="privacy-table">
+        <tr>
+          <th>Data Type</th>
+          <th>Why It's Accessed</th>
+          <th>Stored?</th>
+        </tr>
+        <tr>
+          <td>Personally Identifiable Information</td>
+          <td>Reads the username/profile shown on AI platform pages only to confirm an active logged-in session</td>
+          <td>Never</td>
+        </tr>
+        <tr>
+          <td>Web History (Tab URLs)</td>
+          <td>Reads the URL of active tabs to detect which AI platform is open and trigger the correct automation workflow</td>
+          <td>Never</td>
+        </tr>
+        <tr>
+          <td>User Activity</td>
+          <td>Simulates clicks and text input on AI platform pages to automate prompt submission and generation on your behalf</td>
+          <td>Never</td>
+        </tr>
+        <tr>
+          <td>Website Content</td>
+          <td>Reads AI platform page content to detect generation status, extract image outputs, and confirm workflow completion</td>
+          <td>Never</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="privacy-block">
+      <h3>What We Never Collect</h3>
+      <ul>
+        <li>Passwords or authentication credentials</li>
+        <li>Financial or payment information</li>
+        <li>Health information</li>
+        <li>Personal communications (emails, messages, chats)</li>
+        <li>Location data</li>
+        <li>Any data from websites other than Meta AI, Gemini, and ChatGPT</li>
+      </ul>
+    </div>
+
+    <div class="privacy-block">
+      <h3>Local Storage</h3>
+      <p>The Extension saves the following data exclusively on your device using Chrome's local storage — never on any external server:</p>
+      <ul>
+        <li>Your prompt lists and generation history</li>
+        <li>Flow Pipeline queue and settings</li>
+        <li>Generation mode preferences</li>
+        <li>Premium status and subscription state</li>
+      </ul>
+    </div>
+
+    <div class="privacy-block">
+      <h3>Permissions Explained</h3>
+      <table class="privacy-table">
+        <tr>
+          <th>Permission</th>
+          <th>Why It's Needed</th>
+        </tr>
+        <tr>
+          <td>activeTab</td>
+          <td>To detect and interact with the active Meta AI, Gemini, or ChatGPT tab and automate generation</td>
+        </tr>
+        <tr>
+          <td>tabs</td>
+          <td>To switch between AI platform tabs automatically during bulk generation workflows</td>
+        </tr>
+        <tr>
+          <td>scripting</td>
+          <td>To inject automation scripts into AI platform pages to input prompts and trigger generation</td>
+        </tr>
+        <tr>
+          <td>downloads</td>
+          <td>To read AI-generated images from your Downloads folder for the Flow Pipeline queue</td>
+        </tr>
+        <tr>
+          <td>storage</td>
+          <td>To save prompt lists, settings, and preferences locally on your device</td>
+        </tr>
+        <tr>
+          <td>unlimitedStorage</td>
+          <td>To store large prompt lists and pipeline data without hitting Chrome's default storage quota</td>
+        </tr>
+        <tr>
+          <td>sidePanel</td>
+          <td>To display the Omni Automator control panel as a persistent side panel during automation</td>
+        </tr>
+        <tr>
+          <td>browsingData</td>
+          <td>To clear cached session data when switching between AI platforms for clean automation runs</td>
+        </tr>
+        <tr>
+          <td>host permissions</td>
+          <td>To run automation scripts specifically on meta.ai, gemini.google.com, and chatgpt.com</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="privacy-block">
+      <h3>Third-Party Platforms</h3>
+      <p>The Extension automates actions on Meta AI (meta.ai), Google Gemini (gemini.google.com), and ChatGPT (chatgpt.com). Your use of these platforms is governed by their own privacy policies. Omni Automator is not affiliated with Meta, Google, or OpenAI.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h3>Data Sharing</h3>
+      <p>We do not sell, trade, lease, or transfer any user data to third parties under any circumstances. The Extension has no backend server, no external database, and no analytics tracking.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h3>Children's Privacy</h3>
+      <p>This Extension is not intended for use by children under the age of 13. We do not knowingly collect any data from children.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h3>Changes to This Policy</h3>
+      <p>We may update this Privacy Policy as the Extension evolves. Changes will be reflected with an updated "Last Updated" date at the top of this page. Continued use of the Extension after changes constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h3>Contact</h3>
+      <p>Developer: Osama Altaf<br>
+      Email: <a href="mailto:osamaaltaf.pk@gmail.com" style="color:var(--purple-light);">osamaaltaf.pk@gmail.com</a><br>
+      LinkedIn: <a href="https://www.linkedin.com/in/osamaaltafpk/" target="_blank" style="color:var(--purple-light);">linkedin.com/in/osamaaltafpk</a><br>
+      Fiverr: <a href="https://www.fiverr.com/neural_networks" target="_blank" style="color:var(--purple-light);">fiverr.com/neural_networks</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Osama Altaf · All rights reserved</p>
+  <p><a href="#privacy">Privacy Policy</a> · <a href="mailto:osamaaltaf.pk@gmail.com">osamaaltaf.pk@gmail.com</a> · <a href="https://www.fiverr.com/neural_networks" target="_blank">@neural_networks on Fiverr</a></p>
+</footer>
+
+</body>
+</html>
