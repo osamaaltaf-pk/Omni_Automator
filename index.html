@@ -57,9 +57,7 @@
     gap: 10px;
   }
 
-  .nav-logo span {
-    color: var(--purple-light);
-  }
+  .nav-logo span { color: var(--purple-light); }
 
   .nav-links {
     display: flex;
@@ -706,6 +704,39 @@
     margin-bottom: 50px;
   }
 
+  /* Zero-collection hero banner */
+  .privacy-hero-banner {
+    background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(124,58,237,0.08));
+    border: 1px solid rgba(6,182,212,0.25);
+    border-radius: 16px;
+    padding: 32px 36px;
+    margin-bottom: 50px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .privacy-hero-banner .shield {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .privacy-hero-banner h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+
+  .privacy-hero-banner p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
   .privacy-block {
     margin-bottom: 44px;
   }
@@ -743,6 +774,7 @@
 
   .privacy-block li { margin-bottom: 6px; }
 
+  /* Permissions table — styled the same as before */
   .privacy-table {
     width: 100%;
     border-collapse: collapse;
@@ -819,6 +851,7 @@
     footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 24px; }
     .privacy-section { padding: 70px 24px; }
     .flow-section { padding: 0 24px 70px; }
+    .privacy-hero-banner { flex-direction: column; gap: 12px; padding: 24px; }
   }
 </style>
 </head>
@@ -1086,74 +1119,70 @@
 
 <div class="divider"></div>
 
-<!-- PRIVACY POLICY -->
+<!-- PRIVACY POLICY — Zero Data Collection -->
 <section id="privacy">
   <div class="privacy-section">
     <div class="section-label">Legal</div>
     <h2>Privacy Policy</h2>
-    <p class="privacy-date">Omni Automator Chrome Extension · Last Updated: May 16, 2026</p>
+    <p class="privacy-date">Omni Automator Chrome Extension · Last Updated: May 19, 2026</p>
+
+    <!-- Zero-collection hero banner -->
+    <div class="privacy-hero-banner">
+      <div class="shield">🛡️</div>
+      <div>
+        <h3>Zero Data Collection — Period.</h3>
+        <p>Omni Automator does not collect, transmit, store on any server, or share any data about you or your activity — ever. All automation runs entirely inside your own browser. Nothing leaves your device. There is no backend, no analytics, no tracking of any kind.</p>
+      </div>
+    </div>
 
     <div class="privacy-block">
       <h3>Overview</h3>
-      <p>Omni Automator ("the Extension") is a Chrome browser extension developed by Osama Altaf that automates AI image and video generation across Meta AI, Google Gemini, and ChatGPT. This Privacy Policy explains what data the Extension interacts with, why, and how it is handled. All processing happens locally in your browser. No data is sent to any external server owned or operated by us.</p>
+      <p>Omni Automator ("the Extension") is a Chrome browser extension developed by Osama Altaf that automates AI image and video generation across Meta AI, Google Gemini, and ChatGPT. This Privacy Policy describes how the Extension operates with a strict zero-collection policy. No data is processed, recorded, or transmitted to any server — ours or anyone else's.</p>
     </div>
 
     <div class="privacy-block">
-      <h3>Data We Interact With</h3>
-      <table class="privacy-table">
-        <tr>
-          <th>Data Type</th>
-          <th>Why It's Accessed</th>
-          <th>Stored?</th>
-        </tr>
-        <tr>
-          <td>Personally Identifiable Information</td>
-          <td>Reads the username/profile shown on AI platform pages only to confirm an active logged-in session</td>
-          <td>Never</td>
-        </tr>
-        <tr>
-          <td>Web History (Tab URLs)</td>
-          <td>Reads the URL of active tabs to detect which AI platform is open and trigger the correct automation workflow</td>
-          <td>Never</td>
-        </tr>
-        <tr>
-          <td>User Activity</td>
-          <td>Simulates clicks and text input on AI platform pages to automate prompt submission and generation on your behalf</td>
-          <td>Never</td>
-        </tr>
-        <tr>
-          <td>Website Content</td>
-          <td>Reads AI platform page content to detect generation status, extract image outputs, and confirm workflow completion</td>
-          <td>Never</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="privacy-block">
-      <h3>What We Never Collect</h3>
+      <h3>No Data Collection</h3>
+      <p>The Extension does not collect any data whatsoever. This includes, but is not limited to:</p>
       <ul>
+        <li>Personally identifiable information (name, email, username, profile data)</li>
+        <li>Browsing history or tab URLs</li>
+        <li>User activity, clicks, or interactions</li>
+        <li>Page content or AI-generated outputs</li>
         <li>Passwords or authentication credentials</li>
         <li>Financial or payment information</li>
         <li>Health information</li>
         <li>Personal communications (emails, messages, chats)</li>
         <li>Location data</li>
-        <li>Any data from websites other than Meta AI, Gemini, and ChatGPT</li>
+        <li>Device identifiers or fingerprints</li>
+        <li>Any other data of any kind</li>
       </ul>
     </div>
 
     <div class="privacy-block">
-      <h3>Local Storage</h3>
-      <p>The Extension saves the following data exclusively on your device using Chrome's local storage — never on any external server:</p>
+      <h3>Local-Only Storage</h3>
+      <p>The Extension saves a small amount of data exclusively on your own device using Chrome's local storage to remember your preferences between sessions. This data never leaves your device and is never accessible to us or any third party. It includes:</p>
       <ul>
-        <li>Your prompt lists and generation history</li>
+        <li>Your prompt lists and generation preferences</li>
         <li>Flow Pipeline queue and settings</li>
-        <li>Generation mode preferences</li>
+        <li>Generation mode selections</li>
         <li>Premium status and subscription state</li>
       </ul>
+      <p style="margin-top:12px;">You can clear this data at any time by removing the Extension or clearing Chrome's extension storage from your browser settings.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h3>No Backend, No Servers</h3>
+      <p>Omni Automator has no backend server, no remote database, and no cloud infrastructure of any kind. The Extension communicates solely with the AI platforms you open in your own browser (Meta AI, Google Gemini, ChatGPT) to automate actions on your behalf — exactly as if you were doing them manually. No data from those interactions is intercepted, logged, or stored by us.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h3>No Analytics or Tracking</h3>
+      <p>The Extension contains no analytics libraries, tracking pixels, telemetry, crash reporters, or any other form of usage monitoring. We have no way of knowing how, when, or how often you use the Extension.</p>
     </div>
 
     <div class="privacy-block">
       <h3>Permissions Explained</h3>
+      <p>The Extension requests certain Chrome permissions solely to make automation work inside your browser. None of these permissions are used to collect or transmit data.</p>
       <table class="privacy-table">
         <tr>
           <th>Permission</th>
@@ -1161,7 +1190,7 @@
         </tr>
         <tr>
           <td>activeTab</td>
-          <td>To detect and interact with the active Meta AI, Gemini, or ChatGPT tab and automate generation</td>
+          <td>To detect and interact with the active Meta AI, Gemini, or ChatGPT tab and automate generation on your behalf</td>
         </tr>
         <tr>
           <td>tabs</td>
@@ -1169,19 +1198,19 @@
         </tr>
         <tr>
           <td>scripting</td>
-          <td>To inject automation scripts into AI platform pages to input prompts and trigger generation</td>
+          <td>To inject automation scripts into AI platform pages to input prompts and trigger generation — no data is extracted or sent anywhere</td>
         </tr>
         <tr>
           <td>downloads</td>
-          <td>To read AI-generated images from your Downloads folder for the Flow Pipeline queue</td>
+          <td>To read AI-generated images from your Downloads folder for the Flow Pipeline queue — files are processed locally and never uploaded</td>
         </tr>
         <tr>
           <td>storage</td>
-          <td>To save prompt lists, settings, and preferences locally on your device</td>
+          <td>To save your prompt lists, settings, and preferences locally on your device only</td>
         </tr>
         <tr>
           <td>unlimitedStorage</td>
-          <td>To store large prompt lists and pipeline data without hitting Chrome's default storage quota</td>
+          <td>To store large prompt lists and pipeline data locally without hitting Chrome's default storage quota</td>
         </tr>
         <tr>
           <td>sidePanel</td>
@@ -1193,24 +1222,24 @@
         </tr>
         <tr>
           <td>host permissions</td>
-          <td>To run automation scripts specifically on meta.ai, gemini.google.com, and chatgpt.com</td>
+          <td>To run automation scripts specifically on meta.ai, gemini.google.com, and chatgpt.com — no other sites are touched</td>
         </tr>
       </table>
     </div>
 
     <div class="privacy-block">
       <h3>Third-Party Platforms</h3>
-      <p>The Extension automates actions on Meta AI (meta.ai), Google Gemini (gemini.google.com), and ChatGPT (chatgpt.com). Your use of these platforms is governed by their own privacy policies. Omni Automator is not affiliated with Meta, Google, or OpenAI.</p>
+      <p>The Extension automates actions on Meta AI (meta.ai), Google Gemini (gemini.google.com), and ChatGPT (chatgpt.com). Your use of these platforms is subject to their own privacy policies and terms of service. Omni Automator is not affiliated with Meta, Google, or OpenAI.</p>
     </div>
 
     <div class="privacy-block">
       <h3>Data Sharing</h3>
-      <p>We do not sell, trade, lease, or transfer any user data to third parties under any circumstances. The Extension has no backend server, no external database, and no analytics tracking.</p>
+      <p>We do not sell, trade, lease, share, or transfer any user data to any third party under any circumstances — because we collect none to begin with.</p>
     </div>
 
     <div class="privacy-block">
       <h3>Children's Privacy</h3>
-      <p>This Extension is not intended for use by children under the age of 13. We do not knowingly collect any data from children.</p>
+      <p>This Extension is not intended for use by children under the age of 13. We do not knowingly collect any data from children, or from anyone.</p>
     </div>
 
     <div class="privacy-block">
